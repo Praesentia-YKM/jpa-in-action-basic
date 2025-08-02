@@ -20,7 +20,7 @@ public class JpaMain {
             // 1. INSERT 작업 준비
             Member member = new Member();
             member.setId(100L); // 새로운 ID로 설정
-            member.setName("flushed_member");
+            member.setUsername("flushed_member");
             em.persist(member); // -> '쓰기 지연' 저장소에 INSERT SQL 저장
 
             // em.flush() : 영속성 컨텍스트의 변경 내용을 데이터베이스에 강제로 동기화
@@ -39,14 +39,14 @@ public class JpaMain {
 
             System.out.println("--- JPQL 실행 ---");
             for (Member m : result) {
-                System.out.println("member.name = " + m.getName());
+                System.out.println("member.name = " + m.getUsername());
             }
 
             // 3. Null 체크로 NullPointerException 방지 : 이거없으면 쓰기지연때문에 npe발생으로 인해 전체가 롤백됨
             Member findMember = em.find(Member.class, 1L);
             if (findMember != null) {
                 // 이 로직은 실행되지 않음
-                findMember.setName("hello_updated");
+                findMember.setUsername("hello_updated");
             }
 
 
