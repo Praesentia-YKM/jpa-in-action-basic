@@ -1,4 +1,4 @@
-package hellojpa.practice;
+package hellojpa.practice.manyToOneEx;
 
 import jakarta.persistence.*;
 

@@ -1,7 +1,7 @@
-package hellojpa.practice;
+package hellojpa.practice.manyToOneEx;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 
