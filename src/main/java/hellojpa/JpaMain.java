@@ -1,5 +1,7 @@
 package hellojpa;
 
+import hellojpa.practice.inheritance.Item;
+import hellojpa.practice.inheritance.Movie;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -17,9 +19,22 @@ public class JpaMain {
 
         try {
 
-            System.out.println("--- commit 호출 ---");
-            tx.commit();
-            System.out.println("--- commit 완료 ---");
+            Movie movie = new Movie();
+            movie.setDirector("aaaa");
+            movie.setActor("bbbb");
+            movie.setName("바람과함께사라지다"); // 'name'은 부모 클래스인 Item으로부터 상속받은 속성
+            movie.setPrice(10000); // 'price'는 부모 클래스인 Item으로부터 상속받은 속성
+
+            // 영속성 컨텍스트에 저장
+            em.persist(movie);
+
+            // 영속성 컨텍스트의 변경 내용을 데이터베이스에 동기화
+            em.flush();
+            em.clear(); // 영속성 컨텍스트를 비워서 1차 캐시를 지움
+
+            // 데이터베이스에서 다시 조회 (em.clear() 했기 때문에 SELECT 쿼리가 실행됨)
+            Item item = em.find(Item.class, movie.getId());
+            System.out.println("findMovie = " + item); // PER_CLASS 상속옵션(InheritanceType) 쓰면 하위항목들 찾을때 union all 로 select 해와서 비효율
 
         } catch (Exception e) {
             tx.rollback(); // 실패 시 롤백
