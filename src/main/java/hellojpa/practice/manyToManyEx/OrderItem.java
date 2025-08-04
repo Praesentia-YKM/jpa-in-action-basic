@@ -1,10 +1,8 @@
 package hellojpa.practice.manyToManyEx;
 
-import hellojpa.practice.manyToManyEx.Item;
-import hellojpa.practice.manyToManyEx.Order;
 import jakarta.persistence.*;
 
-@Entity
+@Entity(name = "OrderItem2")
 public class OrderItem {
     @Id
     @GeneratedValue

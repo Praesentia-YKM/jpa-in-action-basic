@@ -1,16 +1,13 @@
 package hellojpa.practice.manyToManyEx;
 
-import hellojpa.practice.manyToManyEx.Member;
-import hellojpa.practice.manyToManyEx.OrderItem;
-import hellojpa.practice.manyToManyEx.OrderStatus;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "ORDERS")
+@Entity(name = "Order2")
+@Table(name = "ORDERS_2")
 public class Order {
 
     @Id @GeneratedValue

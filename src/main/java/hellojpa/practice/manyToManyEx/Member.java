@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-@Entity
+@Entity(name = "Member2")
 public class Member {
     @Id @GeneratedValue
     @Column(name = "MEMBER_ID")

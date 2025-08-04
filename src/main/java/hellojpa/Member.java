@@ -8,7 +8,7 @@ import java.util.Date;
  * - 이 클래스가 JPA가 관리하는 '엔티티'임을 나타냅니다.
  * - 이 어노테이션이 붙은 클래스는 데이터베이스의 테이블과 매핑됩니다.
  */
-@Entity
+@Entity(name = "Real_Member")
 public class Member {
 
     /**
