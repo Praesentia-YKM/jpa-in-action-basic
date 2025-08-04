@@ -1,6 +1,8 @@
 package hellojpa;
 
+import hellojpa.practice.BaseEntity;
 import jakarta.persistence.*;
+
 import java.util.Date;
 
 /**
@@ -9,7 +11,7 @@ import java.util.Date;
  * - 이 어노테이션이 붙은 클래스는 데이터베이스의 테이블과 매핑됩니다.
  */
 @Entity(name = "Real_Member")
-public class Member {
+public class Member extends BaseEntity { //JPA에서 extends를 쓰려면 MappedSuperclass 또는 entity 어노테이션이 붙어있는 클래스만 가능하다
 
     /**
      * @Id

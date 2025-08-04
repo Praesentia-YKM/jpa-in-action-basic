@@ -24,7 +24,7 @@ public class JpaMain {
             movie.setActor("bbbb");
             movie.setName("바람과함께사라지다"); // 'name'은 부모 클래스인 Item으로부터 상속받은 속성
             movie.setPrice(10000); // 'price'는 부모 클래스인 Item으로부터 상속받은 속성
-
+            
             // 영속성 컨텍스트에 저장
             em.persist(movie);
 
